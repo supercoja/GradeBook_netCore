@@ -3,38 +3,44 @@ using System.Collections.Generic;
 
 namespace GradeBook
 {
-    class Book
+    public class Book
     {
         public Book()
         {
             grades = new List<double>();
-//            this.name = name;
         }
         public void AddGrade(double grade)
         {
             grades.Add(grade);
         }
 
-        public void ShowStatistics()
+        public Statistics GetStatistics()
         {
-            var result = 0.00;
-            var highGrade = double.MinValue;
-            var lowestGrade = double.MaxValue;
+            var result = new Statistics();
 
-            foreach (var number in grades)
+            result.Average = 0.00;
+            result.High = double.MinValue;
+            result.Low = double.MaxValue;
+
+            foreach (var grade in grades)
             {
-                highGrade = Math.Max(number, highGrade);
-                lowestGrade = Math.Min(number, lowestGrade);
-                result += number;
+                result.High = Math.Max(grade, result.High);
+                result.Low = Math.Min(grade, result.Low);
+                result.Average += grade;
             }
-            result /= grades.Count;
-            Console.WriteLine($"Average Grade: {result:N1}");
-            Console.WriteLine($"Lowest Grade: {lowestGrade:N1}");
-            Console.WriteLine($"Highest Grade: {highGrade:N1}");
+            result.Average /= grades.Count;
+
+            return result;
         }
 
+        public void ShowStatistics()
+        {
+            // Console.WriteLine($"Average Grade: {result:N1}");
+            // Console.WriteLine($"Lowest Grade: {lowestGrade:N1}");
+            // Console.WriteLine($"Highest Grade: {highestGrade:N1}");
+        }
 
         List<double> grades;
-        protected string name {get;  private set;}
+        protected string name { get; private set; }
     }
 }
