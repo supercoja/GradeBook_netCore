@@ -8,7 +8,10 @@ namespace test
         [Fact]
         public void Test1()
         {
-
+            var book = new Book();
+            //arrange
+            //act
+            //assert
         }
     }
 }

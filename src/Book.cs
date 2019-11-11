@@ -8,6 +8,7 @@ namespace GradeBook
         public Book()
         {
             grades = new List<double>();
+//            this.name = name;
         }
         public void AddGrade(double grade)
         {
@@ -34,6 +35,6 @@ namespace GradeBook
 
 
         List<double> grades;
-
+        protected string name {get;  private set;}
     }
 }
