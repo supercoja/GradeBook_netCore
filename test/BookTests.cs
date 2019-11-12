@@ -7,7 +7,7 @@ namespace test
     public class BookTests
     {
         [Fact]
-        public void Test1()
+        public void BookTestsAverageResults()
         {
             //arrange
             var book = new Book();
@@ -27,6 +27,7 @@ namespace test
             Assert.Equal(result.High,highestGrade);
             Assert.Equal(result.Low,lowestGrade);
             Assert.Equal(result.Average,averageGrade,0);
+            Assert.Equal('B',result.Letter);
 
         }
     }
